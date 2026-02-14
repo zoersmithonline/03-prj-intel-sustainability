@@ -1,0 +1,245 @@
+/* =========================
+   Global Styles
+========================= */
+
+:root {
+  --intel-blue: #0068b5;
+  --light-gray: #f4f6f8;
+  --dark-gray: #333;
+  --card-bg: #ffffff;
+  --line-color: #cfd8dc;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--dark-gray);
+  background-color: var(--light-gray);
+  line-height: 1.6;
+}
+
+/* =========================
+   Header / Hero Section
+========================= */
+
+header {
+  background: linear-gradient(135deg, #0068b5, #004a87);
+  background: linear-gradient(135deg, #0068b5, #004a87), radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 70%);
+  background-blend-mode: overlay;
+  padding: 4.5rem 1rem;
+  text-align: center;
+  color: white;
+}
+
+header img {
+  width: 130px;
+  margin-bottom: 1.5rem;
+}
+
+header h1 {
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+header p {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #e6f0f8;
+}
+
+/* =========================
+   Timeline Layout
+========================= */
+
+section {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding: 3rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  scroll-snap-type: x mandatory;
+  position: relative;
+  align-items: flex-start; /* prevents cards from all stretching */
+}
+
+.timeline-card {
+  flex: 0 0 auto;
+  width: 280px;
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  scroll-snap-align: start;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 1;
+  min-height: 360px; 
+
+  /* new for isolated hover expansion */
+  transition: box-shadow 0.5s ease, transform 0.3s ease;
+  height: auto;               /* let each card size itself */
+}
+
+/* Timeline card images */
+.timeline-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px; /* adjust this value for more/less rounding */
+  transition: transform 0.5s ease;
+}
+
+
+.timeline-card h2 { 
+  margin: 0 0 0.5rem 0;
+  color: var(--intel-blue); 
+  font-size: 1.4rem; 
+} 
+
+.timeline-card p { 
+  margin: 0;
+  font-size: 0.95rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;      /* only show 3 lines by default */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: max-height 0.5s ease;
+  max-height: 4.5em;          /* roughly 3 lines height */
+}
+
+/* hover effects for only the hovered card */
+.timeline-card:hover { 
+  transform: translateY(-6px); 
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.15);
+  z-index: 10;                 /* bring hovered card above others */
+}
+
+.timeline-card:hover p {
+  -webkit-line-clamp: unset;   /* remove line clamp */
+  max-height: 1000px;           /* let paragraph expand fully */
+  overflow: visible;
+}
+
+/* =========================
+   Bottom Info Text
+========================= */
+
+body > p { 
+  text-align: center; 
+  margin: 2.5rem auto; 
+  font-size: 0.9rem; 
+  color: #666; 
+  letter-spacing: 0.3px; 
+  opacity: 0.85; 
+} 
+
+/* ========================= 
+   Mobile Styles — Vertical Timeline
+========================= */ 
+
+@media (max-width: 768px) {
+
+  section {
+    flex-direction: column;
+    overflow-x: hidden;
+    gap: 2rem;
+    padding: 2.5rem 1.25rem;
+    position: relative;
+  }
+
+  /* Vertical timeline line */
+  section::after {
+    top: 0;
+    left: 22px;
+    width: 4px;
+    height: 100%;
+    background-color: var(--line-color);
+  }
+
+  .timeline-card {
+    width: 100%;
+    aspect-ratio: auto;
+    padding: 1.5rem 1.5rem 1.5rem 2.5rem;
+    position: relative;
+  }
+
+  /* Timeline dot */
+  .timeline-card::before {
+    content: "";
+    position: absolute;
+    top: 1.5rem;
+    left: 12px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--intel-blue);
+    border-radius: 50%;
+    z-index: 2;
+  }
+
+  .image-wrapper {
+    margin-bottom: 1rem;
+  }
+
+  .image-overlay {
+    font-size: 1.4rem;
+  }
+
+  body > p {
+    display: none;
+  }
+
+  /* Always show date on mobile */
+.image-overlay {
+  opacity: 1;
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  width: auto;
+  height: auto;
+  padding: 0.4rem 0.75rem;
+  background-color: var(--intel-blue);
+  font-size: 0.9rem;
+  border-radius: 4px;
+}
+
+/* Disable hover scaling on mobile */
+.image-wrapper:hover img {
+  transform: none;
+}
+
+/* Mobile hero spacing & typography */
+header {
+  padding: 3rem 1.25rem;
+}
+
+header img {
+  width: 100px;
+  margin-bottom: 1rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+header p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+header > div {
+  padding: 0 1.5rem;
+}
+}
