@@ -19,7 +19,7 @@
 body {
   margin: 0;
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color: var(--dark-gray);
+  color: black;
   background-color: var(--light-gray);
   line-height: 1.6;
 }
@@ -140,7 +140,7 @@ body > p {
   text-align: center; 
   margin: 2.5rem auto; 
   font-size: 0.9rem; 
-  color: #666; 
+  color: black; 
   letter-spacing: 0.3px; 
   opacity: 0.85; 
 } 
@@ -194,10 +194,6 @@ body > p {
 
   .image-overlay {
     font-size: 1.4rem;
-  }
-
-  body > p {
-    display: none;
   }
 
   /* Always show date on mobile */
