@@ -71,7 +71,8 @@ header p {
   align-items: flex-start; /* prevents cards from all stretching 
 }*/
 
-section {
+.timeline-section
+ {
   display: flex;
   gap: 2rem;
   overflow-x: auto;
@@ -88,7 +89,7 @@ section {
 
 .timeline-card {
   flex: 0 0 auto;
-  width: 280px;
+  width: 240px;
   background: var(--card-bg);
   padding: 1.5rem;
   border-radius: 8px;
@@ -161,6 +162,59 @@ body > p {
   letter-spacing: 0.3px; 
   opacity: 0.85; 
 } 
+
+/* =========================
+   3 Column Info Cards
+========================= */
+
+.info-section {
+  background-color: white;
+}
+
+.info-card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card h2 {
+  font-size: 1.4rem;
+  color: var(--intel-blue);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.info-card h2 i {
+  font-size: 1.3rem;
+}
+
+.info-card p {
+  font-size: 0.95rem;
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+  color: var(--dark-gray);
+}
+
+/* Button styling */
+.intel-btn {
+  background-color: var(--intel-blue);
+  color: white;
+  border-radius: 6px;
+  padding: 0.6rem 1.25rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.intel-btn:hover {
+  background-color: #005a9e;
+  color: white;
+  transform: translateY(-2px);
+}
 
 /* =========================
    Newsletter Section
