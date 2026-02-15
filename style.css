@@ -59,18 +59,6 @@ header p {
    Timeline Layout
 ========================= */
 
-/*section {
-  display: flex;
-  gap: 2rem;
-  overflow-x: auto;
-  padding: 3rem 4rem;
-  max-width: 1000px;
-  margin: 0 auto;
-  scroll-snap-type: x mandatory;
-  position: relative;
-  align-items: flex-start; /* prevents cards from all stretching 
-}*/
-
 .timeline-section
  {
   display: flex;
@@ -85,7 +73,6 @@ header p {
   scroll-snap-type: x mandatory;
   align-items: flex-start;
 }
-
 
 .timeline-card {
   flex: 0 0 auto;
@@ -117,7 +104,6 @@ header p {
   border-radius: 8px; /* adjust this value for more/less rounding */
   transition: transform 0.5s ease;
 }
-
 
 .timeline-card h2 { 
   margin: 0 0 0.5rem 0;
@@ -239,6 +225,26 @@ body > p {
 }
 
 /* ========================= 
+   Footer Styles
+========================= */ 
+.footer-inline {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-title {
+  font-weight: 700;   /* bold */
+  font-size: 1.1rem;
+}
+
+.footer-tagline {
+  font-weight: 400;   /* normal */
+  font-size: 0.9rem;
+}
+
+/* ========================= 
    Mobile Styles — Vertical Timeline
 ========================= */ 
 
@@ -279,6 +285,10 @@ body > p {
     background-color: var(--intel-blue);
     border-radius: 50%;
     z-index: 2;
+  }
+
+  body > p {
+    display: none;
   }
 
   .image-wrapper {
